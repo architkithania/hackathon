@@ -70,11 +70,11 @@ class Fields
 }
 class Records
 {
-    private int _id;
+    public int _id;
     public String jobtitle;
-    private String education;
-    private String experience;
-    private String mediansalary;
+    public String education;
+    public String experience;
+    public String mediansalary;
     public String skills;
 
     public String toString() {

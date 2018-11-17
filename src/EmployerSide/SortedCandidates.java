@@ -55,20 +55,26 @@ public class SortedCandidates {
 
     SortedCandidates(int interviewSlots, String [] priorityList, String jobTitle) {
         try {
-            StringBuilder compareTitle = new StringBuilder();
-            for (int i = 0; i < jobTitle.length(); i++) {
-                if (jobTitle.charAt(i) == '_') {
-                    compareTitle.append(" ");
-                }
-                else {
-                    compareTitle.append(jobTitle.charAt(i));
-                }
-            }
+//            StringBuilder compareTitle = new StringBuilder();
+////            for (int i = 0; i < jobTitle.length(); i++) {
+////                if (jobTitle.charAt(i) == '_') {
+////                    compareTitle.append(" ");
+////                }
+////                else {
+////                    compareTitle.append(jobTitle.charAt(i));
+////                }
+////            }
             ParseAPI api = new ParseAPI();
             Records record = new Records();
             for (int i = 0; i < api.records.length; i++) {
-                if (api.records[i].jobtitle.equals(compareTitle.toString())) {
-                    record = api.records[i];
+                if (api.records[i].jobtitle.equals(jobTitle)) {
+                    record.jobtitle = api.records[i].jobtitle;
+                    record.skills = api.records[i].skills;
+                    record.mediansalary = api.records[i].mediansalary;
+                    record.experience = api.records[i].experience;
+                    record.education = api.records[i].education;
+                    record._id = api.records[i]._id;
+                    break;
                 }
             }
             Gson gson = new Gson();
