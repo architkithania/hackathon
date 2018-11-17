@@ -37,6 +37,9 @@ public class Employer {
 
     private static String[] priorityOptions = {"", "Education", "Experience", "Skills"};
 
+    private static String[] nameSamples = {"Steven", "Archit", "Abdalla", "Dineth"};
+    private static JList applicants;
+
     public static void createListingsJSON(){
         gson = new Gson();
         try {
@@ -92,6 +95,7 @@ public class Employer {
         frame.setSize(600, 800);
         GridBagConstraints gc = new GridBagConstraints();
         JPanel panel = new JPanel(new GridBagLayout());
+        JPanel applicantsPanel = new JPanel();
         frame.add(panel);
 
         Insets labelInsets = new Insets(0, 0, 0, 5);
@@ -181,7 +185,38 @@ public class Employer {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                frame.remove(panel);
+                frame.setVisible(true);
+                frame.add(applicantsPanel);
+                applicants = new JList<String>(nameSamples);
+                applicants.setFont(new Font("Arial", Font.PLAIN, 36));
+                applicantsPanel.add(applicants);
+                frame.revalidate();
+            }
+        });
 
+        priority1ComboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                priority2ComboBox.removeAllItems();
+                priority3ComboBox.removeAllItems();
+                for(int i = 0; i < priorityOptions.length; i++){
+                    priority2ComboBox.addItem(priorityOptions[i]);
+                }
+                priority2ComboBox.removeItem(priority1ComboBox.getSelectedItem());
+                priority3ComboBox.removeItem(priority1ComboBox.getSelectedItem());
+            }
+        });
+
+        priority2ComboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                priority3ComboBox.removeAllItems();
+                for(int i = 0; i < priorityOptions.length; i++){
+                    priority3ComboBox.addItem(priorityOptions[i]);
+                }
+                priority3ComboBox.removeItem(priority1ComboBox.getSelectedItem());
+                priority3ComboBox.removeItem(priority2ComboBox.getSelectedItem());
             }
         });
 
