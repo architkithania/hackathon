@@ -42,9 +42,19 @@ public class Employer {
     public static void createListingsJSON(){
         gson = new Gson();
         try {
+            PrintStream jobs = new PrintStream(new File("jobs.txt"));
+            PrintStream ps;
             ParseAPI parseAPI = new ParseAPI();
             for(int i = 0; i < parseAPI.records.length; i++){
-                PrintStream ps = new PrintStream(new File("job_listings/" + parseAPI.records[i].jobtitle + ".json"));
+                ps = new PrintStream(new File("job_listings/" + parseAPI.records[i].jobtitle + ".json"));
+                StringBuilder sb = new StringBuilder();
+                for (int j = 0; j < parseAPI.records[i].jobtitle.length(); j++) {
+                    if (parseAPI.records[i].jobtitle.charAt(j) == '_')
+                        sb.append(' ');
+                    else
+                        sb.append(parseAPI.records[i].jobtitle.charAt(j));
+                }
+                jobs.println(sb);
             }
             JSONFileFormatter fileFormatter = new JSONFileFormatter();
         }

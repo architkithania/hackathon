@@ -53,7 +53,7 @@ public class SortedCandidates {
     public boolean isEmpty;
     public int [] ids;
 
-    SortedCandidates(int interviewSlots, String [] priorityList, String jobTitl e) {
+    SortedCandidates(int interviewSlots, String [] priorityList, String jobTitle) {
         try {
             ParseAPI api = new ParseAPI();
             Records record = new Records();
