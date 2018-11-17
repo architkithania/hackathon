@@ -20,8 +20,8 @@ public class Employer {
             ParseAPI parseAPI = new ParseAPI();
             for(int i = 0; i < parseAPI.records.length; i++){
                 PrintStream ps = new PrintStream(new File("job_listings/" + parseAPI.records[i].jobtitle + ".json"));
-                ps.println(gson.toJson(parseAPI.records[i].jobtitle));
             }
+            JSONFileFormatter fileFormatter = new JSONFileFormatter();
         }
         catch(Exception ex){
             System.out.println(ex.getMessage());
