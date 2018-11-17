@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class ParseAPI {
 
     StringBuilder oneLineString = new StringBuilder();
+    public static Records [] records;
 
     public ParseAPI() throws FileNotFoundException {
         Scanner scanner = new Scanner(new File("API.json"));
@@ -21,7 +22,7 @@ public class ParseAPI {
         stream.println(gson.toJson(jobs.result.records));
         scanner = new Scanner(new File("test.json"));
         Records [] recordsArr = gson.fromJson(scanner.nextLine(), Records[].class);
-        recordsArr = removeWhiteSpaceInTitle(recordsArr);
+        records = removeWhiteSpaceInTitle(recordsArr);
     }
 
     private Records [] removeWhiteSpaceInTitle(Records [] recordsArr) {
@@ -44,10 +45,6 @@ public class ParseAPI {
 
     private void makeOneLine(String s) {
         oneLineString.append(s.trim());
-    }
-
-    public static void main(String[] args) throws FileNotFoundException{
-        ParseAPI api = new ParseAPI();
     }
 }
 
