@@ -5,25 +5,25 @@ import com.google.gson.Gson;
 
 
 public class EmployerDataJSON {
-    public ArrayList<EmployerData> pdj = new ArrayList<EmployerData>();
-    Scanner sc;
-
-    try{
-         sc = new Scanner(new File("employerRequirement.json"));
-        Gson gson = new Gson();
-        if(sc.hasNextLine()) {
-            EmployerDataJSON[] employerDataArray = gson.fromJson(sc.nextLine(), EmployerDataJSON[].class);
-            pdj = new ArrayList<EmployerData>(Arrays.asList(employerDataArray));
-            pdj.add(new EmployerDataJSON());
-            sc.close();
-        }
-        PrintStream printFile = new PrintStream(new File("employerRequirements.json"));
-        printFile.println(gson.toJson(pdj));
-        printFile.close();
-    }
-    catch(FileNotFoundException ex){
-        System.out.println(ex.getMessage());
-    }
+//    public ArrayList<EmployerData> pdj = new ArrayList<EmployerData>();
+//    Scanner sc;
+//
+//    try{
+//         sc = new Scanner(new File("employerRequirement.json"));
+//        Gson gson = new Gson();
+//        if(sc.hasNextLine()) {
+//            EmployerDataJSON[] employerDataArray = gson.fromJson(sc.nextLine(), EmployerDataJSON[].class);
+//            pdj = new ArrayList<EmployerData>(Arrays.asList(employerDataArray));
+//            pdj.add(new EmployerDataJSON());
+//            sc.close();
+//        }
+//        PrintStream printFile = new PrintStream(new File("employerRequirements.json"));
+//        printFile.println(gson.toJson(pdj));
+//        printFile.close();
+//    }
+//    catch(FileNotFoundException ex){
+//        System.out.println(ex.getMessage());
+//    }
 
 }
 
