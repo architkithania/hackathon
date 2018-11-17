@@ -18,6 +18,7 @@ public class SignUpFields extends JPanel {
     private JTextField phoneField;
     private JButton submitButton;
     public ArrayList<PersonalDataJSON> pdj;
+    public CloseWindow closeListner;
 
     SignUpFields() {
         setPreferredSize(new Dimension(300, 250));
@@ -52,6 +53,7 @@ public class SignUpFields extends JPanel {
                         }
                         PrintStream printFile = new PrintStream(new File("nameIDMatch.json"));
                         printFile.println(gson.toJson(pdj));
+                        closeListner.buttonListner(true);
                         printFile.close();
                     }
                     catch(IOException ex){
@@ -123,6 +125,10 @@ public class SignUpFields extends JPanel {
         gc.gridwidth = 2;
         gc.anchor = GridBagConstraints.PAGE_START;
         add(submitButton, gc);
+    }
+
+    public void closeThis(CloseWindow emitter) {
+        this.closeListner = emitter;
     }
 }
 
