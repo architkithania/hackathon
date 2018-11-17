@@ -5,7 +5,9 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import java.util.*;
+import java.io.*;
+import com.google.gson.Gson;
 
 public class SignUpFields extends JPanel {
     private JLabel nameLabel;
@@ -15,6 +17,8 @@ public class SignUpFields extends JPanel {
     private JTextField emailField;
     private JTextField phoneField;
     private JButton submitButton;
+    public ArrayList<PersonalDataJSON> pdj;
+    public CloseWindow closeListner;
 
     SignUpFields() {
         setPreferredSize(new Dimension(300, 250));
@@ -24,7 +28,7 @@ public class SignUpFields extends JPanel {
         setBorder(border);
         setLayout(new GridBagLayout());
 
-        ArrayList<PersonalDataJSON> pbj = new ArrayList<>();
+        pdj = new ArrayList<>();
 
         nameField = new JTextField(10);
         emailField = new JTextField(10);
@@ -37,10 +41,29 @@ public class SignUpFields extends JPanel {
                 if (nameField.getText().equals("") || emailField.getText().equals("") || phoneField.getText().equals(""))
                      JOptionPane.showMessageDialog(null, "Please Input all correct Fields");
                 else {
-                    pbj.add(new PersonalDataJSON(nameField.getText(), emailField.getText(), phoneField.getText()));
+
+                    try{
+                        Scanner sc = new Scanner(new File("nameIDMatch.json"));
+                        Gson gson = new Gson();
+                        if(sc.hasNextLine()) {
+                            PersonalDataJSON[] personalDataArray = gson.fromJson(sc.nextLine(), PersonalDataJSON[].class);
+                            pdj = new ArrayList<PersonalDataJSON>(Arrays.asList(personalDataArray));
+                            pdj.add(new PersonalDataJSON(nameField.getText(), emailField.getText(), phoneField.getText()));
+                            sc.close();
+                        }
+                        PrintStream printFile = new PrintStream(new File("nameIDMatch.json"));
+                        printFile.println(gson.toJson(pdj));
+                        closeListner.buttonListner(true);
+                        printFile.close();
+                    }
+                    catch(IOException ex){
+                        System.out.println(ex.getMessage());
+                    }
                 }
             }
         });
+
+
 
         GridBagConstraints gc = new GridBagConstraints();
         gc.weightx = 1.0;
@@ -102,6 +125,10 @@ public class SignUpFields extends JPanel {
         gc.gridwidth = 2;
         gc.anchor = GridBagConstraints.PAGE_START;
         add(submitButton, gc);
+    }
+
+    public void closeThis(CloseWindow emitter) {
+        this.closeListner = emitter;
     }
 }
 
