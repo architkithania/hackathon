@@ -1,5 +1,7 @@
 package EmployerSide;
 
+import com.google.gson.Gson;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
@@ -10,13 +12,15 @@ public class Employer {
     private static JLabel jobTitleLabel;
     private static JTextField jobTitleField;
     private static File file;
+    private static Gson gson;
 
     public static void createListingsJSON(){
+        gson = new Gson();
         try {
             ParseAPI parseAPI = new ParseAPI();
             for(int i = 0; i < parseAPI.records.length; i++){
                 PrintStream ps = new PrintStream(new File("job_listings/" + parseAPI.records[i].jobtitle + ".json"));
-                ps.println(parseAPI.records[i].jobtitle);
+                ps.println(gson.toJson(parseAPI.records[i].jobtitle));
             }
         }
         catch(Exception ex){
