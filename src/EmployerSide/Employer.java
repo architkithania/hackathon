@@ -135,6 +135,7 @@ public class Employer {
 
         skills = getListOfSkills();
         skillsList = new JList(skills.toArray());
+        skillsList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         gc.gridx = 1;
         gc.gridy = 3;
         gc.anchor = GridBagConstraints.LINE_START;

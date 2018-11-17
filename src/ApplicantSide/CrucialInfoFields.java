@@ -10,9 +10,11 @@ public class CrucialInfoFields extends JPanel {
     private JLabel educationLabel;
     private JLabel skillsLabel;
     private JLabel experienceLabel;
+    private JLabel jobTitleLabel;
     private JTextField educationField;
     private JTextField skillsField;
     private JTextField experienceField;
+    private JTextField jobTitleField;
     private JButton submitButton;
 
     CrucialInfoFields() {
@@ -26,14 +28,18 @@ public class CrucialInfoFields extends JPanel {
         skillsField = new JTextField(10);
         educationField = new JTextField(10);
         experienceField = new JTextField(10);
+        jobTitleField = new JTextField(10);
 
         submitButton = new JButton("Look for Jobs Now!");
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (educationField.getText().equals("") || skillsField.getText().equals("") || experienceField.getText().equals(""))
+                if (educationField.getText().equals("") || skillsField.getText().equals("") || experienceField.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Please Input all correct Fields");
-                else {
+                } else {
+                    String[] skills = skillsField.getText().split(",");
+                    AppendToJSON appendJSON = new AppendToJSON(jobTitleField.getText(), educationField.getText(), experienceField.getText(), skills);
+                    JOptionPane.showMessageDialog(null, "Information Passed");
                 }
             }
         });
@@ -89,6 +95,20 @@ public class CrucialInfoFields extends JPanel {
         gc.anchor = GridBagConstraints.LINE_START;
         gc.insets = blankInset;
         add(experienceField, gc);
+
+        // Row 3
+        jobTitleLabel = new JLabel("Job Title:");
+        gc.gridx = 0;
+        gc.gridy = 3;
+        gc.anchor = GridBagConstraints.LINE_END;
+        gc.insets = labelInset;
+        add(jobTitleLabel, gc);
+
+        gc.gridx = 1;
+        gc.gridy = 3;
+        gc.anchor = GridBagConstraints.LINE_START;
+        gc.insets = blankInset;
+        add(jobTitleField, gc);
 
         // Row 4
         gc.weightx = 1.0;
