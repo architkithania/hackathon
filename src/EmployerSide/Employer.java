@@ -13,6 +13,9 @@ public class Employer {
     private static JTextField jobTitleField;
     private static JLabel educationLabel;
     private static JComboBox educationComboBox;
+    private static JLabel skillsLabel;
+    private static JList skillsList;
+    private static JScrollPane scrollableSkillsList;
     private static File file;
     private static Gson gson;
 
@@ -71,6 +74,23 @@ public class Employer {
         gc.anchor = GridBagConstraints.LINE_START;
         gc.insets = blankInsets;
         panel.add(educationComboBox, gc);
+
+        skillsLabel = new JLabel("Skills:");
+        gc.gridx = 0;
+        gc.gridy = 2;
+        gc.anchor = GridBagConstraints.LINE_END;
+        gc.insets = labelInsets;
+        panel.add(skillsLabel, gc);
+
+        String[] skills = {"MS Word", "MS Powerpoint", "Java", "PHP"};
+        skillsList = new JList(skills);
+        gc.gridx = 1;
+        gc.gridy = 2;
+        gc.anchor = GridBagConstraints.LINE_START;
+        gc.insets = blankInsets;
+        scrollableSkillsList = new JScrollPane(skillsList);
+        scrollableSkillsList.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        panel.add(scrollableSkillsList, gc);
 
         frame.setVisible(true);
 
