@@ -3,10 +3,10 @@ package EmployerSide;
 public class Jobs
 {
     private String help;
-    private Boolean true;
-    Results Results;
+    private Boolean success;
+    Results result;
 }
-public class Results {
+class Results {
     private Boolean include_total;
     private String resource_id;
     Fields[] fields;
@@ -15,12 +15,12 @@ public class Results {
     Links _links;
     private int total;
 }
-public class Fields
+class Fields
 {
     private String type;
     private String id;
 }
-public class Records
+class Records
 {
     private int _id;
     private String jobtitle;
@@ -29,7 +29,7 @@ public class Records
     private String mediansalary;
     private String skills;
 }
-public class Links
+class Links
 {
     private String start;
     private String next;
