@@ -53,17 +53,8 @@ public class SortedCandidates {
     public boolean isEmpty;
     public int [] ids;
 
-    SortedCandidates(int interviewSlots, String [] priorityList, String jobTitle) {
+    SortedCandidates(int interviewSlots, String [] priorityList, String jobTitl e) {
         try {
-//            StringBuilder compareTitle = new StringBuilder();
-////            for (int i = 0; i < jobTitle.length(); i++) {
-////                if (jobTitle.charAt(i) == '_') {
-////                    compareTitle.append(" ");
-////                }
-////                else {
-////                    compareTitle.append(jobTitle.charAt(i));
-////                }
-////            }
             ParseAPI api = new ParseAPI();
             Records record = new Records();
             for (int i = 0; i < api.records.length; i++) {
