@@ -75,7 +75,7 @@ class Records
     private String education;
     private String experience;
     private String mediansalary;
-    private String skills;
+    public String skills;
 
     public String toString() {
         return ( _id + "," + jobtitle + "," + education + "," + experience + "," + mediansalary + "," + "[" + skills + "]");
