@@ -1,6 +1,7 @@
 package ApplicantSide;
 
 import javax.swing.*;
+import java.io.FileNotFoundException;
 
 public class ApplicantGUI {
 

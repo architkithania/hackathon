@@ -19,8 +19,17 @@ public class SignUpFields extends JPanel {
     private JButton submitButton;
     public ArrayList<PersonalDataJSON> pdj;
     public CloseWindow closeListner;
+    private int counter;
+
 
     SignUpFields() {
+        Scanner counterScanner;
+        try {
+            counterScanner = new Scanner(new File("counter.txt"));
+            counter = counterScanner.nextInt();
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        }
         setPreferredSize(new Dimension(300, 250));
         Border innerBorder = BorderFactory.createTitledBorder("Log In");
         Border outerBorder = BorderFactory.createEmptyBorder(5, 5, 5, 5);
@@ -46,15 +55,19 @@ public class SignUpFields extends JPanel {
                         Scanner sc = new Scanner(new File("nameIDMatch.json"));
                         Gson gson = new Gson();
                         if(sc.hasNextLine()) {
-                            System.out.println("Entered");
                             PersonalDataJSON[] personalDataArray = gson.fromJson(sc.nextLine(), PersonalDataJSON[].class);
                             pdj = new ArrayList<PersonalDataJSON>(Arrays.asList(personalDataArray));
                             sc.close();
                         }
-                        pdj.add(new PersonalDataJSON(nameField.getText(), emailField.getText(), phoneField.getText()));
+                        PersonalDataJSON toBeAdded;
+                        toBeAdded = new PersonalDataJSON(nameField.getText(), emailField.getText(), phoneField.getText());
+                        pdj.add(toBeAdded);
                         PrintStream printFile = new PrintStream(new File("nameIDMatch.json"));
                         printFile.println(gson.toJson(pdj));
                         closeListner.buttonListner(true);
+                        counter++;
+                        PrintStream counterStream = new PrintStream("counter.txt");
+                        counterStream.println(counter);
                         printFile.close();
                     }
                     catch(IOException ex){
@@ -63,7 +76,7 @@ public class SignUpFields extends JPanel {
                 }
             }
         });
-        
+
 
         GridBagConstraints gc = new GridBagConstraints();
         gc.weightx = 1.0;
