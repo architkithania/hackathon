@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class ParseAPI {
 
     StringBuilder oneLineString = new StringBuilder();
-    public static Records [] records;
+    public Records [] records;
 
     public ParseAPI() throws FileNotFoundException {
         Scanner scanner = new Scanner(new File("API.json"));
