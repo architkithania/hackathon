@@ -10,9 +10,11 @@ public class ApplicationCrucialInfoController extends JFrame {
         super("Job Info Page");
         setSize(700, 500);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setVisible(signUpComplete);
         setLayout(new BorderLayout());
 
 
+        CrucialInfoFields fields = new CrucialInfoFields();
+
+        add(fields, BorderLayout.CENTER);
     }
 }
