@@ -51,9 +51,10 @@ class JobListingFileJSON {
 
 class Applicant {
     private int id;
-    private String education;
+    private String education; // 3 - "Master Degree", 2 - "Bachelor Degree", 1 - "Diploma / Certificate"
     private String experience;
     private String [] skills;
+
 
     public Applicant(int id, String education, String experience, String[] skills) {
         this.id = id;
