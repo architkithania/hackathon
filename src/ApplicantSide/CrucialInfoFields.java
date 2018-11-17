@@ -55,62 +55,62 @@ public class CrucialInfoFields extends JPanel {
         Insets blankInset = new Insets(0,0,0,0);
 
         // Row 1
-        educationLabel = new JLabel("Education:");
-        gc.gridx = 0;
-        gc.gridy = 0;
-        gc.anchor = GridBagConstraints.LINE_END;
-        gc.insets = labelInset;
-        add(educationLabel, gc);
-
-        gc.gridx = 1;
-        gc.gridy = 0;
-        gc.anchor = GridBagConstraints.LINE_START;
-        gc.insets = blankInset;
-        add(educationField, gc);
-
-        // Row 2
-        skillsLabel = new JLabel("Skills:");
-        gc.gridx = 0;
-        gc.gridy = 1;
-        gc.anchor = GridBagConstraints.LINE_END;
-        gc.insets = labelInset;
-        add(skillsLabel, gc);
-
-        gc.gridx = 1;
-        gc.gridy = 1;
-        gc.anchor = GridBagConstraints.LINE_START;
-        gc.insets = blankInset;
-        add(skillsField, gc);
-
-        // Row 3
-        experienceLabel = new JLabel("Experience:");
-        gc.gridx = 0;
-        gc.gridy = 2;
-        gc.anchor = GridBagConstraints.LINE_END;
-        gc.insets = labelInset;
-        add(experienceLabel, gc);
-
-        gc.gridx = 1;
-        gc.gridy = 2;
-        gc.anchor = GridBagConstraints.LINE_START;
-        gc.insets = blankInset;
-        add(experienceField, gc);
-
-        // Row 3
         jobTitleLabel = new JLabel("Job Title:");
         gc.gridx = 0;
-        gc.gridy = 3;
+        gc.gridy = 0;
         gc.anchor = GridBagConstraints.LINE_END;
         gc.insets = labelInset;
         add(jobTitleLabel, gc);
 
         gc.gridx = 1;
-        gc.gridy = 3;
+        gc.gridy = 0;
         gc.anchor = GridBagConstraints.LINE_START;
         gc.insets = blankInset;
         add(jobTitleField, gc);
 
+        // Row 2
+        educationLabel = new JLabel("Education:");
+        gc.gridx = 0;
+        gc.gridy = 1;
+        gc.anchor = GridBagConstraints.LINE_END;
+        gc.insets = labelInset;
+        add(educationLabel, gc);
+
+        gc.gridx = 1;
+        gc.gridy = 1;
+        gc.anchor = GridBagConstraints.LINE_START;
+        gc.insets = blankInset;
+        add(educationField, gc);
+
+        // Row 3
+        skillsLabel = new JLabel("Skills:");
+        gc.gridx = 0;
+        gc.gridy = 2;
+        gc.anchor = GridBagConstraints.LINE_END;
+        gc.insets = labelInset;
+        add(skillsLabel, gc);
+
+        gc.gridx = 1;
+        gc.gridy = 2;
+        gc.anchor = GridBagConstraints.LINE_START;
+        gc.insets = blankInset;
+        add(skillsField, gc);
+
         // Row 4
+        experienceLabel = new JLabel("Experience:");
+        gc.gridx = 0;
+        gc.gridy = 3;
+        gc.anchor = GridBagConstraints.LINE_END;
+        gc.insets = labelInset;
+        add(experienceLabel, gc);
+
+        gc.gridx = 1;
+        gc.gridy = 3;
+        gc.anchor = GridBagConstraints.LINE_START;
+        gc.insets = blankInset;
+        add(experienceField, gc);
+
+        // Row 5
         gc.weightx = 1.0;
         gc.weighty = 10.0;
         gc.gridx = 0;
