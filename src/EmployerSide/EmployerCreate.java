@@ -10,7 +10,7 @@ import java.io.*;
 import java.util.*;
 import java.sql.SQLOutput;
 
-public class Employer {
+public class EmployerCreate {
     private static JLabel jobTitleLabel;
     private static JTextField jobTitleField;
     private static JLabel educationLabel;
