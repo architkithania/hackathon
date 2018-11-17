@@ -2,10 +2,27 @@ package EmployerSide;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.*;
+import java.util.*;
+import java.sql.SQLOutput;
 
 public class Employer {
     private static JLabel jobTitleLabel;
     private static JTextField jobTitleField;
+    private static File file;
+
+    public static void createListingsJSON(){
+        try {
+            ParseAPI parseAPI = new ParseAPI();
+            for(int i = 0; i < parseAPI.records.length; i++){
+                PrintStream ps = new PrintStream(new File("job_listings/" + parseAPI.records[i].jobtitle + ".json"));
+                ps.println(parseAPI.records[i].jobtitle);
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+    }
 
     public static void main(String[] args){
         JFrame frame = new JFrame();
@@ -53,5 +70,6 @@ public class Employer {
 
         frame.setVisible(true);
 
+        createListingsJSON();
     }
 }
