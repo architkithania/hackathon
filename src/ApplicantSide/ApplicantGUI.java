@@ -1,10 +1,9 @@
 package ApplicantSide;
 
 import javax.swing.*;
+import java.io.FileNotFoundException;
 
 public class ApplicantGUI {
-
-    static public boolean changeToCrucial = false;
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
