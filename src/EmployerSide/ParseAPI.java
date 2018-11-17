@@ -86,5 +86,3 @@ class Links
     private String start;
     private String next;
 }
-
-
