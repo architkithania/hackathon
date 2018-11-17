@@ -37,7 +37,6 @@ public class Employer {
 
     private static String[] priorityOptions = {"", "Education", "Experience", "Skills"};
 
-    private static String[] nameSamples = {"Steven", "Archit", "Abdalla", "Dineth"};
     private static JList applicants;
 
     public static void createListingsJSON(){
@@ -185,11 +184,12 @@ public class Employer {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String[] priorities = {(String)priority1ComboBox.getSelectedItem(), (String)priority2ComboBox.getSelectedItem(), (String)priority3ComboBox.getSelectedItem()};
+                SortedCandidates sortedCandidates = new SortedCandidates((int)slotsSpinner.getValue(), priorities, (String)jobTitleComboBox.getSelectedItem());
                 frame.remove(panel);
                 frame.setVisible(true);
                 frame.add(applicantsPanel);
-                applicants = new JList<String>(nameSamples);
-                applicants.setFont(new Font("Arial", Font.PLAIN, 36));
+                applicants.setFont(new Font("Arial", Font.PLAIN, 42));
                 applicantsPanel.add(applicants);
                 frame.revalidate();
             }

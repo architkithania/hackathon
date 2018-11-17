@@ -53,7 +53,7 @@ public class SortedCandidates {
     public boolean isEmpty;
     public int [] ids;
 
-    SortedCandidates(int interviewSlots, String [] priorityList, String jobTitle) {
+    SortedCandidates(int interviewSlots, String [] priorityList, String jobTitl e) {
         try {
 //            StringBuilder compareTitle = new StringBuilder();
 ////            for (int i = 0; i < jobTitle.length(); i++) {
