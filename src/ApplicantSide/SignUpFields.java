@@ -15,6 +15,7 @@ public class SignUpFields extends JPanel {
     private JTextField emailField;
     private JTextField phoneField;
     private JButton submitButton;
+    public PersonalDataJSON [] finalJSONArray;
 
     SignUpFields() {
         setPreferredSize(new Dimension(300, 250));
@@ -25,6 +26,11 @@ public class SignUpFields extends JPanel {
         setLayout(new GridBagLayout());
 
         ArrayList<PersonalDataJSON> pbj = new ArrayList<>();
+
+        finalJSONArray = new PersonalDataJSON[pbj.size()];
+        for (int i = 0; i < pbj.size(); i++) {
+            finalJSONArray[i] = pbj.get(i);
+        }
 
         nameField = new JTextField(10);
         emailField = new JTextField(10);
