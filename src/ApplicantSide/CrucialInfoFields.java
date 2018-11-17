@@ -5,7 +5,6 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class CrucialInfoFields extends JPanel {
     private JLabel educationLabel;

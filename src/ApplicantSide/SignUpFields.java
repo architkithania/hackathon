@@ -46,11 +46,12 @@ public class SignUpFields extends JPanel {
                         Scanner sc = new Scanner(new File("nameIDMatch.json"));
                         Gson gson = new Gson();
                         if(sc.hasNextLine()) {
+                            System.out.println("Entered");
                             PersonalDataJSON[] personalDataArray = gson.fromJson(sc.nextLine(), PersonalDataJSON[].class);
                             pdj = new ArrayList<PersonalDataJSON>(Arrays.asList(personalDataArray));
-                            pdj.add(new PersonalDataJSON(nameField.getText(), emailField.getText(), phoneField.getText()));
                             sc.close();
                         }
+                        pdj.add(new PersonalDataJSON(nameField.getText(), emailField.getText(), phoneField.getText()));
                         PrintStream printFile = new PrintStream(new File("nameIDMatch.json"));
                         printFile.println(gson.toJson(pdj));
                         closeListner.buttonListner(true);
@@ -62,8 +63,7 @@ public class SignUpFields extends JPanel {
                 }
             }
         });
-
-
+        
 
         GridBagConstraints gc = new GridBagConstraints();
         gc.weightx = 1.0;
