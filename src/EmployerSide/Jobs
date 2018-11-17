@@ -6,6 +6,7 @@ public class Jobs
     private Boolean true;
     Results Results;
 }
+
 public class Results {
     private Boolean include_total;
     private String resource_id;
@@ -20,6 +21,7 @@ public class Fields
     private String type;
     private String id;
 }
+
 public class Records
 {
     private int _id;
@@ -29,6 +31,7 @@ public class Records
     private String mediansalary;
     private String skills;
 }
+
 public class Links
 {
     private String start;

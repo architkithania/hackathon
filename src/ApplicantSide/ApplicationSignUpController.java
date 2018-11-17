@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class ApplicationSignUpController extends JFrame {
 
-
+    public static CloseWindow closeListener;
 
     ApplicationSignUpController() {
         super("Sign Up Page");
@@ -20,11 +20,14 @@ public class ApplicationSignUpController extends JFrame {
             @Override
             public void buttonListner(boolean open) {
                 setVisible(!open);
-
+                closeListener.buttonListner(true);
             }
         });
 
         add(fields, BorderLayout.CENTER);
-        System.out.println(ApplicantGUI.changeToCrucial);
+    }
+
+    public static void isClosed(CloseWindow emitter) {
+        closeListener = emitter;
     }
 }
